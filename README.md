@@ -5,10 +5,12 @@ TechGuilds React coding challenge
 To run the project, using terminal go to
 
   -client directory and run <br>
-      ->npm run dev
+      ->npm install <br>
+      ->npm run dev <br><br>
   
   -server directory and run <br>
-      ->npm start 
+      ->npm install. <br>
+      ->npm start  <br><br>
       
       
  Here is a quick demo of the challenge
