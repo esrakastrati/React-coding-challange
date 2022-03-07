@@ -12,13 +12,13 @@
 border:3px solid #444;
 -moz-border-radius: 1px;
 -webkit-border-radius: 3px;
-object-fit: cover;
+object-fit: contain;
 margin-bottom: 15px
 
 }
 
 .image:hover {
-  filter: opacity(0.8);
+  filter: opacity(0.6);
   
 }
 

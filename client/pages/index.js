@@ -7,9 +7,6 @@ export default function Home() {
         <main className={styles.main}>
             <h1 className={styles.header}> Task for TechGuilds </h1>
             <Gallery />
-
-
-
         </main>
     )
 }

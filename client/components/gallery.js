@@ -55,9 +55,9 @@ const Gallery = () => {
         >
             {/* Modal div, open via clicink on the image */}
 
-            <div className={showModal ? "modal column" : " hide"}
+            <div className={showModal ? "modal" : "hide"}
             >
-                <div className="column">
+                <div>
                     <div className="username">
                         {imgSrc.user}
                         <span className="close" onClick={() => closeModalWithImage()}>&times;</span>
@@ -73,6 +73,9 @@ const Gallery = () => {
                     </div>
                 </div>
             </div>
+
+            {/* End of Modal div */}
+
 
             {/* Gallery containing multiple images*/}
             <div className="gallery">
@@ -94,6 +97,8 @@ const Gallery = () => {
                     })
                 }
             </div>
+            {/* End of Gallery containing multiple images*/}
+
         </InfiniteScroll>
 
     )
