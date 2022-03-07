@@ -6,7 +6,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Gallery = () => {
     const [images, setImages] = useState([]);
-
+    const [hasMore, sethasMore] = useState(true);
     const [showModal, setshowModal] = useState(false);
     const [imgSrc, setimgSrc] = useState('');
 
@@ -20,14 +20,20 @@ const Gallery = () => {
             console.log(error);
             return;
         }
+
         setImages([...images, ...data]);
         // console.log(data)
+
+        if (!data.length) {
+            sethasMore(false);
+        }
     }
 
     const openModalWithImage = (value) => {
         setimgSrc(value);
         setshowModal(true);
-        console.log(value);
+
+        // console.log(value);
     }
 
     const closeModalWithImage = (value) => {
@@ -38,25 +44,37 @@ const Gallery = () => {
     return (
         <InfiniteScroll
             dataLength={images.length}
-            hasMore={true}
+            hasMore={hasMore}
+            endMessage={
+                <p style={{ textAlign: 'center', color: '#444' }}>
+                    <b>You have seen it all :) </b>
+                </p>
+            }
+
+            next={fetchImages}
         >
-            <div className={showModal ? "modal column" : "modal hide"}
+            {/* Modal div, open via clicink on the image */}
+
+            <div className={showModal ? "modal column" : " hide"}
             >
                 <div className="column">
+                    <div className="username">
+                        {imgSrc.user}
+                        <span className="close" onClick={() => closeModalWithImage()}>&times;</span>
+                    </div>
                     <div>
                         <img src={imgSrc.imageUrl} />
                     </div>
-                    <div className="close">
-                        <div>
+                    <div >
+                        <div className="description">
                             {imgSrc.description}
 
-                            {imgSrc.user}
                         </div>
-                        <button onClick={() => closeModalWithImage()}> Close </button>
                     </div>
                 </div>
             </div>
 
+            {/* Gallery containing multiple images*/}
             <div className="gallery">
                 {
                     images.map((image, index) => {
@@ -75,8 +93,8 @@ const Gallery = () => {
                         )
                     })
                 }
-            </div >
-        </InfiniteScroll >
+            </div>
+        </InfiniteScroll>
 
     )
 }

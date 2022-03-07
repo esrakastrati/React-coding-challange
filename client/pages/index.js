@@ -4,16 +4,12 @@ import Gallery from '../components/gallery'
 
 export default function Home() {
     return (
-        <div>
-            <main className={styles.main}>
-                <div className="text-4 underline mb-14">
-                    Task for TechGuilds
-        </div>
-                <Gallery />
+        <main className={styles.main}>
+            <h1 className={styles.header}> Task for TechGuilds </h1>
+            <Gallery />
 
 
 
-            </main>
-        </div>
+        </main>
     )
 }

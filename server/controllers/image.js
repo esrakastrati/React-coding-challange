@@ -7,7 +7,9 @@ exports.read = async (req, res) => {
     const LIMIT = 20;
 
     try {
-        const posts = await Image.find({});
+        //const posts = await Image.aggregate([{ $sample: { size: LIMIT } }]);;
+
+        const posts = await Image.find({}).skip(count).limit(LIMIT);
 
         res.status(200).json({
             success: true,

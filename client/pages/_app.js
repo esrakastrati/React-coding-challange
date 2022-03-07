@@ -1,5 +1,7 @@
 import '../styles/globals.css'
-import style from '../styles/styles.css'
+import gallery from '../styles/gallery.css'
+import modal from '../styles/modal.css'
+
 
 
 function MyApp({ Component, pageProps }) {
