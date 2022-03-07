@@ -9,16 +9,16 @@ exports.read = async (req, res) => {
     try {
         //const posts = await Image.aggregate([{ $sample: { size: LIMIT } }]);;
 
-        const posts = await Image.find({}).skip(count).limit(LIMIT);
+        const images = await Image.find({}).skip(count).limit(LIMIT);
 
         res.status(200).json({
             success: true,
-            data: posts,
+            data: images,
             message: "You did it"
         });
     } catch (error) {
         res.status(400).json({
-            error: `Error getting posts: ${error.message}`,
+            error: `Error getting images: ${error.message}`,
         });
     }
 };
@@ -50,7 +50,7 @@ exports.create = async (req, res) => {
         });
     } catch (error) {
         res.status(400).json({
-            error: `Error create posts: ${error.message}`,
+            error: `Error create images: ${error.message}`,
         });
     }
 };
